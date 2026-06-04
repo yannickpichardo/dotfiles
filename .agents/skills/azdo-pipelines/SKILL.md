@@ -1,31 +1,11 @@
 ---
 name: azdo-pipelines
-description: Azure DevOps pipeline operations - list pipelines, view pipeline runs, poll pipeline status, wait for completion, get pipeline results from PR, check build logs, monitor CI/CD status
+description: Azure DevOps / AzDO / ADO pipeline operations with az pipelines - list pipelines, view pipeline runs, poll pipeline status, wait for completion, get pipeline results from PR, check build logs, monitor CI/CD status; if organization/project defaults are missing, route through azdo-context internally
 ---
 
-# Azure DevOps Pipelines
+# Azure DevOps Pipelines (AzDO, ADO, az pipelines)
 
-Manage Azure DevOps pipelines and builds via `az pipelines` commands. Includes helpers for polling pipeline status and retrieving pipeline runs from PR context.
-
-## First-Use Local Context
-
-This skill is kept public, so do not commit real organization or project values here. On first use, if Azure DevOps organization/project context is unknown:
-
-1. Check existing local defaults:
-   ```bash
-   az devops configure -l
-   ```
-2. If defaults are missing, infer them from the current repository remote:
-   ```bash
-   git remote -v
-   ```
-   Azure DevOps remotes usually look like `https://dev.azure.com/<org>/<project>/_git/<repo>` or `git@ssh.dev.azure.com:v3/<org>/<project>/<repo>`.
-3. Once the org/project are known, configure them locally without asking:
-   ```bash
-   az devops configure --defaults organization=https://dev.azure.com/YourOrg project=YourProject
-   ```
-4. If this skill is running from a private, local-only skill copy, update that local copy automatically by replacing generic examples like `https://dev.azure.com/YourOrg` and `YourProject` with the discovered values so future calls do not need rediscovery.
-5. If this skill is running from a public or tracked dotfiles repo, do not write real org/project values into the skill file. Keep them in local Azure CLI defaults only.
+Manage Azure DevOps pipelines and builds via `az pipelines` commands. Includes helpers for polling pipeline status and retrieving pipeline runs from PR context. If organization/project context is missing, use the `azdo-context` skill first.
 
 ## List Pipelines
 

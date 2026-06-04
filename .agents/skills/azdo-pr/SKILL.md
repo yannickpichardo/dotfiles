@@ -1,31 +1,11 @@
 ---
 name: azdo-pr
-description: Azure DevOps pull request operations - create PR, view PR, list PRs, review, approve, vote, add reviewers, link work items, merge, update PR status, check PR details
+description: Azure DevOps / AzDO / ADO pull request operations with az repos pr - create PR, view PR, list PRs, review, approve, vote, add reviewers, link work items, merge, update PR status, check PR details; if organization/project defaults are missing, route through azdo-context internally
 ---
 
-# Azure DevOps Pull Requests
+# Azure DevOps Pull Requests (AzDO, ADO, az repos pr)
 
-Manage Azure DevOps pull requests via `az repos pr` commands. All commands automatically filter to the current user where applicable.
-
-## First-Use Local Context
-
-This skill is kept public, so do not commit real organization or project values here. On first use, if Azure DevOps organization/project context is unknown:
-
-1. Check existing local defaults:
-   ```bash
-   az devops configure -l
-   ```
-2. If defaults are missing, infer them from the current repository remote:
-   ```bash
-   git remote -v
-   ```
-   Azure DevOps remotes usually look like `https://dev.azure.com/<org>/<project>/_git/<repo>` or `git@ssh.dev.azure.com:v3/<org>/<project>/<repo>`.
-3. Once the org/project are known, configure them locally without asking:
-   ```bash
-   az devops configure --defaults organization=https://dev.azure.com/YourOrg project=YourProject
-   ```
-4. If this skill is running from a private, local-only skill copy, update that local copy automatically by replacing generic examples like `https://dev.azure.com/YourOrg` and `YourProject` with the discovered values so future calls do not need rediscovery.
-5. If this skill is running from a public or tracked dotfiles repo, do not write real org/project values into the skill file. Keep them in local Azure CLI defaults only.
+Manage Azure DevOps pull requests via `az repos pr` commands. All commands automatically filter to the current user where applicable. If organization/project context is missing, use the `azdo-context` skill first.
 
 ## List My PRs
 

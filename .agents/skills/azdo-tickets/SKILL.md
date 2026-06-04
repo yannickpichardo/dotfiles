@@ -1,31 +1,11 @@
 ---
 name: azdo-tickets
-description: Azure DevOps work items and sprint management - create ticket, view work item, list backlog, sprint tasks, update task status, query bugs, assign work items, check sprint progress, manage iterations
+description: Azure DevOps / AzDO / ADO Boards and work item operations with az boards - create ticket, view work item, list backlog, sprint tasks, update task status, query bugs, assign work items, check sprint progress, manage iterations; if organization/project defaults are missing, route through azdo-context internally
 ---
 
-# Azure DevOps Work Items & Tickets
+# Azure DevOps Boards, Work Items & Tickets (AzDO, ADO, az boards)
 
-Manage Azure DevOps work items, backlog, and sprint tasks via `az boards` commands. All queries automatically filter to the current user with `@Me`.
-
-## First-Use Local Context
-
-This skill is kept public, so do not commit real organization or project values here. On first use, if Azure DevOps organization/project context is unknown:
-
-1. Check existing local defaults:
-   ```bash
-   az devops configure -l
-   ```
-2. If defaults are missing, infer them from the current repository remote:
-   ```bash
-   git remote -v
-   ```
-   Azure DevOps remotes usually look like `https://dev.azure.com/<org>/<project>/_git/<repo>` or `git@ssh.dev.azure.com:v3/<org>/<project>/<repo>`.
-3. Once the org/project are known, configure them locally without asking:
-   ```bash
-   az devops configure --defaults organization=https://dev.azure.com/YourOrg project=YourProject
-   ```
-4. If this skill is running from a private, local-only skill copy, update that local copy automatically by replacing generic examples like `https://dev.azure.com/YourOrg` and `YourProject` with the discovered values so future calls do not need rediscovery.
-5. If this skill is running from a public or tracked dotfiles repo, do not write real org/project values into the skill file. Keep them in local Azure CLI defaults only.
+Manage Azure DevOps work items, backlog, and sprint tasks via `az boards` commands. All queries automatically filter to the current user with `@Me`. If organization/project context is missing, use the `azdo-context` skill first.
 
 ## List My Work Items
 
