@@ -67,6 +67,17 @@ tokens.json
 .codex/log/
 .codex/cache/
 .codex/plugins/cache/
+.claude.json
+.claude/.credentials.json
+.claude/settings.local.json
+.claude/projects/
+.claude/todos/
+.claude/shell-snapshots/
+.claude/statsig/
+.claude/ide/
+.claude/logs/
+.claude/cache/
+.claude/tmp/
 .agents/**/.env
 .agents/**/.env.*
 .agents/**/cache/
