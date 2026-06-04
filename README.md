@@ -16,3 +16,18 @@ git pull
 ```
 
 `~/.config/nvim`, `~/.agents`, and `~/.claude` are symlinks into this repo.
+
+Install Skills:
+
+```bash
+npx skills add yannickpichardo/dotfiles
+bunx skills add yannickpichardo/dotfiles
+pnpm dlx skills add yannickpichardo/dotfiles
+```
+
+Specific skill:
+
+```bash
+npx skills add yannickpichardo/dotfiles --skill grill-me -g -a claude-code
+npx skills add yannickpichardo/dotfiles --skill grill-me -g -a codex
+```
