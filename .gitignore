@@ -1,0 +1,83 @@
+# macOS metadata
+.DS_Store
+
+# Nested repositories copied from managed dotfile directories
+.git/
+
+# Logs, editor runtime state, and temporary files
+*.log
+*.log.*
+.nvimlog
+Session.vim
+.netrwhist
+*.swp
+*.swo
+*.tmp
+*.temp
+
+# Local environment and machine-specific overrides
+.env
+.env.*
+!.env.example
+!.env.sample
+*.local
+*.local.*
+local.*
+
+# Private keys, certificates, and auth material
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_rsa.*
+id_dsa
+id_dsa.*
+id_ecdsa
+id_ecdsa.*
+id_ed25519
+id_ed25519.*
+known_hosts
+known_hosts.*
+authorized_keys
+
+# Common credential directories accidentally copied into dotfiles
+.ssh/
+.gnupg/
+.aws/
+.azure/
+.kube/
+.docker/config.json
+
+# Token and secret files used by CLIs, agents, and local tooling
+auth.json
+credentials.json
+secrets.json
+token.json
+tokens.json
+*.credentials
+*.secret
+*.secrets
+*.token
+*.tokens
+
+# Agent and Codex local state; keep shareable skills/configs outside these paths
+.codex/auth.json
+.codex/sessions/
+.codex/log/
+.codex/cache/
+.codex/plugins/cache/
+.agents/**/.env
+.agents/**/.env.*
+.agents/**/cache/
+.agents/**/logs/
+.agents/**/tmp/
+.agents/**/state/
+.agents/**/*credentials*
+.agents/**/*secrets*
+.agents/**/*tokens*
+
+# Neovim local state generated outside the checked-in config
+.config/nvim/.nvimlog
+.config/nvim/spell/*.add
+.config/nvim/spell/*.spl
